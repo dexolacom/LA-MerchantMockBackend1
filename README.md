@@ -1,4 +1,4 @@
-# Liquid Access backend
+# Project name
 
 ---
 
