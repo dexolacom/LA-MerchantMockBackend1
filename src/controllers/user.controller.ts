@@ -21,7 +21,7 @@ const getUser = async (req: Request, res: Response) => {
 const addUser = async (req: Request, res: Response) => {
   cl.w(`=======> add User`);
   const response = await addUserHandler(req.body);
-  cl.w(`<======= sent response to front:`, response);
+  cl.w(`<======= sent response:`, response);
   res.status(typeof response === 'string' ? 400 : 200).send(response);
 };
 
@@ -37,8 +37,10 @@ const login = async (req: Request, res: Response) => {
 const updateUserSubscription = async (req: Request, res: Response) => {
   cl.mt(`=======> update subscription id:`, req.body.NFT_id);
   const response = await updateUserSubscriptionHandler(req.body);
-  cl.w(`<======= sent response to front:`, response);
-  res.status(typeof response === 'string' ? 400 : 200).send(response);
+  cl.w(`<======= sent response:`, response);
+  res
+    .status(typeof response === 'string' ? 400 : 200)
+    .send(typeof response === 'string' ? response : response.data);
 };
 
 // POST update user subscription
