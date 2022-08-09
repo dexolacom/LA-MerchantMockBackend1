@@ -1,24 +1,26 @@
 // @ts-nocheck
 import { Request, Response } from 'express';
 import getUserHandler from './handlers/getUserHandler';
-import createUserHandler from './handlers/createUserHandler';
+import addUserHandler from './handlers/addUserHandler';
 import loginHandler from './handlers/loginHandler';
-import updateUserNFTHandler from './handlers/updateUserNFTHandler';
-import activateUserNFTHandler from './handlers/activateUserNFTHandler';
+import updateUserSubscriptionHandler from './handlers/updateUserSubscriptionHandler';
+import updateUserMailHandler from './handlers/updateUserMailHandler';
+import deactivationHandler from './handlers/deactivationHandler';
+import activationHandler from './handlers/activationHandler';
 import sortData from '../helpers/sortData';
 import { cl } from '../logger';
 
 // GET user
 const getUser = async (req: Request, res: Response) => {
-  const response = await getUserHandler();
-  sortData(response);
+  const response = await getUserHandler(req);
+  response.length !== 0 || (typeof response !== Boolean && sortData(response));
   res.status(200).send(response);
 };
 
-// POST create user
-const createUser = async (req: Request, res: Response) => {
-  cl.w(`=======> create User (wallet: ${req.body.userAddress.slice(0, 7)}...)`);
-  const response = await createUserHandler(req.body);
+// POST add user
+const addUser = async (req: Request, res: Response) => {
+  cl.w(`=======> add User`);
+  const response = await addUserHandler(req.body);
   cl.w(`<======= sent response to front:`, response);
   res.status(typeof response === 'string' ? 400 : 200).send(response);
 };
@@ -31,30 +33,44 @@ const login = async (req: Request, res: Response) => {
   res.status(typeof response === 'string' ? 400 : 200).send(response);
 };
 
-// PATCH add nftId
-const updateUserNFT = async (req: Request, res: Response) => {
-  cl.w(`=======> update NFT (id: ${req.body.nftId})`);
-  const response = await updateUserNFTHandler(req.body);
+// POST update user subscription
+const updateUserSubscription = async (req: Request, res: Response) => {
+  cl.mt(`=======> update subscription id:`, req.body.NFT_id);
+  const response = await updateUserSubscriptionHandler(req.body);
   cl.w(`<======= sent response to front:`, response);
   res.status(typeof response === 'string' ? 400 : 200).send(response);
 };
 
-// PATCH update isActivated
-const activateUserNFT = async (req: Request, res: Response) => {
-  cl.w(
-    `=======> ${
-      req.body.isActivated === true ? 'Activate' : 'Deactivate'
-    } NFT (id: ${req.body.nftId})`
-  );
-  const response = await activateUserNFTHandler(req.body);
+// POST update user subscription
+const updateUserMail = async (req: Request, res: Response) => {
+  cl.mt(`=======> update mail user_id: ${req.body.user_id}`);
+  const response = await updateUserMailHandler(req.body);
+  cl.w(`<======= sent response to front:`, response);
+  res.status(typeof response === 'string' ? 400 : 200).send(response);
+};
+
+// POST deactivation
+const deactivation = async (req: Request, res: Response) => {
+  cl.mt(`=======> update deactivation NFT: ${req.body.NFT_id}`);
+  const response = await deactivationHandler(req.body);
+  cl.w(`<======= sent response to front:`, response);
+  res.status(typeof response === 'string' ? 400 : 200).send(response);
+};
+
+// POST activation
+const activation = async (req: Request, res: Response) => {
+  cl.mt(`=======> update activation NFT: ${req.body.NFT_id}`);
+  const response = await activationHandler(req.body);
   cl.w(`<======= sent response to front:`, response);
   res.status(typeof response === 'string' ? 400 : 200).send(response);
 };
 
 export default {
   getUser,
-  createUser,
+  addUser,
   login,
-  updateUserNFT,
-  activateUserNFT,
+  updateUserSubscription,
+  updateUserMail,
+  deactivation,
+  activation,
 };
