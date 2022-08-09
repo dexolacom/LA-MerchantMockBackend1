@@ -12,7 +12,7 @@ const app = express();
 app.use('*', cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use('/api', routes);
+app.use('/aloha/la', routes);
 
 app.listen(port, () => Cron({ host, port }));
 app.timeout = 100000;

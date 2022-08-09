@@ -3,7 +3,7 @@ import userService from '../../services/user.service';
 import { cl } from '../../logger';
 
 const loginHandler = async data => {
-  console.log(' -- loginHandler');
+  // cl.o(' -- loginHandler');
 
   const user_ = await userService.getUserByLoginAndPassword(data);
 
@@ -11,7 +11,7 @@ const loginHandler = async data => {
     cl.o(' -- no such a user in the db');
     return false;
   } else {
-    cl.o(' -- Login:', true, `${user_[0].userAddress.slice(0, 7)}...`);
+    cl.o(' -- Login:', true);
     return true;
   }
 };

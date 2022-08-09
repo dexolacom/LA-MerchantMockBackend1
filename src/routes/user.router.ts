@@ -5,8 +5,10 @@ const router = express.Router();
 
 router.route('/').get(userController.getUser);
 router.route('/login').get(userController.login);
-router.route('/create').post(userController.createUser);
-router.route('/nft').patch(userController.updateUserNFT);
-router.route('/activate').patch(userController.activateUserNFT);
+router.route('/add').post(userController.addUser);
+router.route('/subscription').post(userController.updateUserSubscription);
+router.route('/mail').post(userController.updateUserMail);
+router.route('/subscription/deactivation').post(userController.deactivation);
+router.route('/subscription/activation').post(userController.activation);
 
 export default router;

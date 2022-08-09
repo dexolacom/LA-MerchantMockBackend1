@@ -5,21 +5,23 @@ export default (sequelize: Model) => {
   const User = sequelize.define(
     'User',
     {
-      id: {
+      user_id: {
         type: DataType.INTEGER,
         unique: true,
         primaryKey: true,
         autoIncrement: true,
         allowNull: false,
-        field: 'id',
+        field: 'user_id',
       },
+      NFT_id: { type: DataType.INTEGER, field: 'NFT_id' },
+      is_waitlist: { type: DataType.BOOLEAN, field: 'is_waitlist' },
+      is_activated_NFT: { type: DataType.BOOLEAN, field: 'is_activated_NFT' },
+      NFT_status: { type: DataType.STRING, field: 'NFT_status' },
+
       login: { type: DataType.STRING, field: 'login' },
       password: { type: DataType.STRING, field: 'password' },
-      userId: { type: DataType.INTEGER, field: 'userId' },
-      userAddress: { type: DataType.STRING, field: 'userAddress' },
       package: { type: DataType.STRING, field: 'package' },
-      nftId: { type: DataType.INTEGER, field: 'nftId' },
-      isActivated: { type: DataType.STRING, field: 'isActivated' },
+      expiration: { type: DataType.INTEGER, field: 'expiration' },
     },
     {
       tableName: 'user',
