@@ -9,7 +9,7 @@ const updateUserSubscriptionHandler = async data => {
 
   if (result[0] === 0) return 'ERROR: 8(';
 
-  return `${data.user_id} information updated`;
+  return { data: `${data.user_id} information updated` };
 };
 
 export default updateUserSubscriptionHandler;
