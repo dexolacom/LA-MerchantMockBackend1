@@ -47,15 +47,16 @@ const updateUserSubscription = async (req: Request, res: Response) => {
 const updateUserMail = async (req: Request, res: Response) => {
   cl.mt(`=======> update mail user_id: ${req.body.user_id}`);
   const response = await updateUserMailHandler(req.body);
-  cl.w(`<======= sent response to front:`, response);
+  cl.w(`<======= sent response:`, response);
   res.status(typeof response === 'string' ? 400 : 200).send(response);
 };
 
 // POST deactivation
 const deactivation = async (req: Request, res: Response) => {
   cl.mt(`=======> update deactivation NFT: ${req.body.NFT_id}`);
+  console.log('req.body 1 -->', req.body);
   const response = await deactivationHandler(req.body);
-  cl.w(`<======= sent response to front:`, response);
+  cl.w(`<======= sent response:`, response);
   res.status(typeof response === 'string' ? 400 : 200).send(response);
 };
 
@@ -63,8 +64,10 @@ const deactivation = async (req: Request, res: Response) => {
 const activation = async (req: Request, res: Response) => {
   cl.mt(`=======> update activation NFT: ${req.body.NFT_id}`);
   const response = await activationHandler(req.body);
-  cl.w(`<======= sent response to front:`, response);
-  res.status(typeof response === 'string' ? 400 : 200).send(response);
+  cl.w(`<======= sent response:`, response);
+  res
+    .status(typeof response === 'string' ? 400 : 200)
+    .send(typeof response === 'string' ? response : response.data);
 };
 
 export default {

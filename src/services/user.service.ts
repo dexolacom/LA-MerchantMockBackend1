@@ -88,16 +88,17 @@ const updateUserMail = async data => {
 
 // POST deactivation NFT
 const deactivation = async data => {
-  const { user_id, NFT_id, is_activated_NFT, NFT_status } = data;
+  const { user_id, NFT_id, expiration, is_activated_NFT, NFT_status } = data;
   cl.mt(` * UPDATE deactivation NFT:`, user_id);
   try {
     return await db.User.update(
       {
         NFT_id: null,
-        is_activated_NFT: false,
-        NFT_status: 'deactivation success',
+        expiration: expiration,
+        is_activated_NFT: is_activated_NFT,
+        NFT_status: NFT_status,
       },
-      { where: { user_id: user_id } }
+      { where: { user_id: user_id, NFT_id: NFT_id } }
     );
   } catch (err) {
     cl.o(' * ERROR in deactivation:', err.message);
@@ -107,12 +108,13 @@ const deactivation = async data => {
 
 // POST activation NFT
 const activation = async data => {
-  const { user_id, NFT_id, is_activated_NFT, NFT_status } = data;
-  cl.mt(` * UPDATE activation NFT:`, user_id);
+  const { user_id, NFT_id, expiration, is_activated_NFT, NFT_status } = data;
+  cl.mt(` * UPDATE activation NFT:`, NFT_id);
   try {
     return await db.User.update(
       {
         NFT_id: NFT_id,
+        expiration: expiration,
         is_activated_NFT: is_activated_NFT,
         NFT_status: NFT_status,
       },

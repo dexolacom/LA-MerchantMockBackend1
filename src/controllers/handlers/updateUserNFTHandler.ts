@@ -3,7 +3,7 @@ import userService from '../../services/user.service';
 import { cl } from '../../logger';
 
 const updateUserNFTHandler = async data => {
-  console.log(' -- updateUserNFTHandler');
+  // console.log(' -- updateUserNFTHandler');
 
   const result = await userService.updateUserNFT(data);
 
