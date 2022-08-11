@@ -5,10 +5,10 @@
 .env example
 
 ```
-PORT = 8823
+PORT = 5000
 
-POSTGRES_HOST = 'localhost'
-POSTGRES_DB = 'mock1_db'
+POSTGRES_HOST = ''
+POSTGRES_DB = ''
 POSTGRES_USER = ''
 POSTGRES_PASSWORD = ''
 ```
