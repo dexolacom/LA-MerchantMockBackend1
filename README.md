@@ -1,4 +1,4 @@
-# Project name
+# LA Merchant Mock Backend 1
 
 ---
 
