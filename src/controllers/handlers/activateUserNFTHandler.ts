@@ -3,7 +3,7 @@ import userService from '../../services/user.service';
 import { cl } from '../../logger';
 
 const activateUserNFTHandler = async data => {
-  cl.o(' -- createUserHandler');
+  // cl.o(' -- createUserHandler');
 
   const result = await userService.updateIsActivated(data);
 

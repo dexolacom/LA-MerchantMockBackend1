@@ -3,7 +3,7 @@ import userService from '../../services/user.service';
 import { cl } from '../../logger';
 
 const deactivationHandler = async data => {
-  // cl.o(' -- deactivationHandler', data);
+  // cl.o(' -- deactivationHandler');
 
   const result = await userService.deactivation(data);
 
@@ -13,6 +13,7 @@ const deactivationHandler = async data => {
     user_id: data.user_id,
     is_activated_NFT: data.is_activated_NFT,
     NFT_id: null,
+    expiration: data.expiration,
     NFT_status: data.NFT_status,
   };
 };

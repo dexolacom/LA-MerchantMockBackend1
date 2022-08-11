@@ -3,7 +3,7 @@ import userService from '../../services/user.service';
 import { cl } from '../../logger';
 
 const updateUserSubscriptionHandler = async data => {
-  // cl.o(' -- updateUserSubscription');
+  // cl.mt(' -- updateUserSubscription');
 
   const result = await userService.updateUserSubscription(data);
 
