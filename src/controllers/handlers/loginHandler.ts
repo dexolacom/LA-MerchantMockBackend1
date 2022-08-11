@@ -3,7 +3,7 @@ import userService from '../../services/user.service';
 import { cl } from '../../logger';
 
 const loginHandler = async query => {
-  cl.o(' -- loginHandler', query);
+  // cl.o(' -- loginHandler', query);
 
   const user_ = await userService.getUserByLoginAndPassword(query);
 
