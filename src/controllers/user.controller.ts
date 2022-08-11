@@ -28,7 +28,7 @@ const addUser = async (req: Request, res: Response) => {
 // POST login
 const login = async (req: Request, res: Response) => {
   cl.w(`=======> Login`);
-  const response = await loginHandler(req.body);
+  const response = await loginHandler(req.query);
   cl.w(`<======= sent response to front:`, response);
   res.status(typeof response === 'string' ? 400 : 200).send(response);
 };

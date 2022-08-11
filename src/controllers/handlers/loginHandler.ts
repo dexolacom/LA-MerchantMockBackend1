@@ -2,10 +2,10 @@
 import userService from '../../services/user.service';
 import { cl } from '../../logger';
 
-const loginHandler = async data => {
-  // cl.o(' -- loginHandler');
+const loginHandler = async query => {
+  cl.o(' -- loginHandler', query);
 
-  const user_ = await userService.getUserByLoginAndPassword(data);
+  const user_ = await userService.getUserByLoginAndPassword(query);
 
   if (user_.length === 0) {
     cl.o(' -- no such a user in the db');
