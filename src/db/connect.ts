@@ -50,8 +50,8 @@ const sequelizeHeroku = new Sequelize(uri, {
   },
 });
 
-export const sequelize = sequelizeLocalhost; // * Localhost
-// export const sequelize = sequelizeHeroku; // * Heroku
+// export const sequelize = sequelizeLocalhost; // * Localhost
+export const sequelize = sequelizeHeroku; // * Heroku
 
 const Models = [User];
 
