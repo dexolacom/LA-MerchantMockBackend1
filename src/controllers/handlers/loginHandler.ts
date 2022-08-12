@@ -11,7 +11,7 @@ const loginHandler = async query => {
     cl.o(' -- no such a user in the db');
     return user_;
   } else {
-    cl.o(' -- Login:', true);
+    cl.o(' -- Login:');
     return user_[0];
   }
 };
