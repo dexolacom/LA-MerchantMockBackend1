@@ -50,7 +50,7 @@ _response:_
 _endpoint:_
 
 ```
-https://liqiudaccess-merchant-backend.herokuapp.com/aloha/la/user/
+https://liqiudaccess-merchant-backend.herokuapp.com/aloha/la/user/add
 ```
 
 _request:_
