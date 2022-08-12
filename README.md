@@ -96,7 +96,17 @@ https://liqiudaccess-merchant-backend.herokuapp.com/aloha/la/user/login/?user_id
 _response:_
 
 ```js
-true;
+{
+    "user_id": 1,
+    "NFT_id": null,
+    "is_waitlist": null,
+    "is_activated_NFT": null,
+    "NFT_status": null,
+    "login": "bestuser",
+    "password": "123456789",
+    "package": null,
+    "expiration": null
+}
 ```
 
 ---
