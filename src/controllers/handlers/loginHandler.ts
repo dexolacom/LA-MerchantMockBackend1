@@ -9,10 +9,10 @@ const loginHandler = async query => {
 
   if (user_.length === 0) {
     cl.o(' -- no such a user in the db');
-    return false;
+    return user_;
   } else {
     cl.o(' -- Login:', true);
-    return true;
+    return user_[0];
   }
 };
 
