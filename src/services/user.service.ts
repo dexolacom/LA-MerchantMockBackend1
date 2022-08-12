@@ -23,12 +23,11 @@ const getUserById = async user_id => {
 
 // GET user by login and password
 const getUserByLoginAndPassword = async data => {
-  cl.o(' * GET user by userId and address');
-  const { user_id, login, password } = data;
+  cl.o(' * GET user by login and password');
+  const { login, password } = data;
   try {
     return await db.User.findAll({
       where: {
-        user_id: user_id,
         login: login,
         password: password,
       },
