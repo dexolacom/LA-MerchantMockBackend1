@@ -55,7 +55,7 @@ _response:_
 _endpoint:_
 
 ```
-https://liqiudaccess-merchant-backend.herokuapp.com/aloha/la/user/login/?user_id=1&login=bestuser&password=123456789
+https://liqiudaccess-merchant-backend.herokuapp.com/aloha/la/user/login/?login=000&password=000
 ```
 
 _response:_
