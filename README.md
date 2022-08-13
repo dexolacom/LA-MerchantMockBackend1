@@ -81,7 +81,7 @@ _response:_
 _endpoint:_
 
 ```
-https://liqiudaccess-merchant-backend.herokuapp.com/aloha/la/user/?user_id=4
+https://liqiudaccess-merchant-backend.herokuapp.com/aloha/la/user/?user_id=1
 ```
 
 _response:_
