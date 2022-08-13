@@ -1,5 +1,6 @@
 // @ts-nocheck
 import { Sequelize } from 'sequelize';
+import { currentDB } from '../constants';
 import User from '../models/User';
 import { URI } from '../constants';
 
@@ -50,8 +51,10 @@ const sequelizeHeroku = new Sequelize(uri, {
   },
 });
 
-// export const sequelize = sequelizeLocalhost; // * Localhost
-export const sequelize = sequelizeHeroku; // * Heroku
+export const sequelize =
+  currentDB === 'localhost'
+    ? sequelizeLocalhost
+    : currentDB === 'heroku' && sequelizeHeroku;
 
 const Models = [User];
 

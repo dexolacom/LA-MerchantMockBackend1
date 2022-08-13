@@ -13,7 +13,7 @@ import { cl } from '../logger';
 // GET user
 const getUser = async (req: Request, res: Response) => {
   const response = await getUserHandler(req);
-  response.length !== 0 || (typeof response !== Boolean && sortData(response));
+  (response.length !== 0 || typeof response !== Boolean) && sortData(response);
   res.status(200).send(response);
 };
 
@@ -54,7 +54,6 @@ const updateUserMail = async (req: Request, res: Response) => {
 // POST deactivation
 const deactivation = async (req: Request, res: Response) => {
   cl.mt(`=======> update deactivation NFT: ${req.body.NFT_id}`);
-  console.log('req.body 1 -->', req.body);
   const response = await deactivationHandler(req.body);
   cl.w(`<======= sent response:`, response);
   res.status(typeof response === 'string' ? 400 : 200).send(response);
