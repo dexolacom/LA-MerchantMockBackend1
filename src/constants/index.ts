@@ -9,6 +9,6 @@ export const URI =
 
 export const BASE_URL =
   currentDB === 'localhost'
-    ? 'http://localhost:8823/aloha/la/user'
+    ? `http://localhost:${process.env.PORT}/aloha/la/user`
     : currentDB === 'heroku' &&
       'https://liqiudaccess-merchant-backend.herokuapp.com/aloha/la/user';
