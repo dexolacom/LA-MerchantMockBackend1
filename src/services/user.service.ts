@@ -85,6 +85,33 @@ const updateUserMail = async data => {
   }
 };
 
+// POST update transferred NFT
+const updateTransferredNFT = async data => {
+  const { user_id, NFT_id, expiration, is_activated_NFT, NFT_status } = data;
+  cl.mt(` * UPDATE deactivation NFT:`, user_id);
+  try {
+    return await db.User.update(
+      {
+        NFT_id: null,
+        expiration: null,
+        is_activated_NFT: is_activated_NFT,
+        NFT_status: NFT_status,
+      },
+      {
+        where: {
+          user_id: user_id,
+          NFT_id: NFT_id,
+          expiration: expiration,
+          is_activated_NFT: !is_activated_NFT,
+        },
+      }
+    );
+  } catch (err) {
+    cl.o(' * ERROR in updateTransferredNFT:', err.message);
+    return err.message;
+  }
+};
+
 // POST deactivation NFT
 const deactivation = async data => {
   const { user_id, NFT_id, expiration, is_activated_NFT, NFT_status } = data;
@@ -93,11 +120,18 @@ const deactivation = async data => {
     return await db.User.update(
       {
         NFT_id: null,
-        expiration: expiration,
+        expiration: null,
         is_activated_NFT: is_activated_NFT,
         NFT_status: NFT_status,
       },
-      { where: { user_id: user_id, NFT_id: NFT_id } }
+      {
+        where: {
+          user_id: user_id,
+          NFT_id: NFT_id,
+          expiration: expiration,
+          is_activated_NFT: !is_activated_NFT,
+        },
+      }
     );
   } catch (err) {
     cl.o(' * ERROR in deactivation:', err.message);
@@ -132,6 +166,7 @@ export default {
   addUser,
   updateUserSubscription,
   updateUserMail,
+  updateTransferredNFT,
   deactivation,
   activation,
 };
