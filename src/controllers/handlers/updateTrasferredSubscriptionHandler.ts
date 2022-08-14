@@ -2,10 +2,10 @@
 import userService from '../../services/user.service';
 import { cl } from '../../logger';
 
-const deactivationHandler = async data => {
-  // cl.o(' -- deactivationHandler');
+const updateTrasferredSubscriptionHandler = async data => {
+  cl.o(' -- updateTrasferredSubscriptionHandler', data);
 
-  const result = await userService.deactivation(data);
+  const result = await userService.updateTransferredNFT(data);
 
   if (result[0] === 0) return 'ERROR: 8(';
 
@@ -18,4 +18,4 @@ const deactivationHandler = async data => {
   };
 };
 
-export default deactivationHandler;
+export default updateTrasferredSubscriptionHandler;

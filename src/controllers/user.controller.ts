@@ -5,6 +5,7 @@ import addUserHandler from './handlers/addUserHandler';
 import loginHandler from './handlers/loginHandler';
 import updateUserSubscriptionHandler from './handlers/updateUserSubscriptionHandler';
 import updateUserMailHandler from './handlers/updateUserMailHandler';
+import updateTrasferredSubscriptionHandler from './handlers/updateTrasferredSubscriptionHandler';
 import deactivationHandler from './handlers/deactivationHandler';
 import activationHandler from './handlers/activationHandler';
 import sortData from '../helpers/sortData';
@@ -35,6 +36,8 @@ const login = async (req: Request, res: Response) => {
 
 // POST update user subscription
 const updateUserSubscription = async (req: Request, res: Response) => {
+  console.log('updateUserSubscription --->', req.body);
+
   cl.mt(`=======> update subscription id:`, req.body.NFT_id);
   const response = await updateUserSubscriptionHandler(req.body);
   cl.w(`<======= sent response:`, response);
@@ -43,10 +46,18 @@ const updateUserSubscription = async (req: Request, res: Response) => {
     .send(typeof response === 'string' ? response : response.data);
 };
 
-// POST update user subscription
+// POST update user mail
 const updateUserMail = async (req: Request, res: Response) => {
   cl.mt(`=======> update mail user_id: ${req.body.user_id}`);
   const response = await updateUserMailHandler(req.body);
+  cl.w(`<======= sent response:`, response);
+  res.status(typeof response === 'string' ? 400 : 200).send(response);
+};
+
+// POST update transferred NFT
+const updateTrasferredSubscription = async (req: Request, res: Response) => {
+  cl.mt(`=======> update transferred NFT: ${req.body.NFT_id}`);
+  const response = await updateTrasferredSubscriptionHandler(req.body);
   cl.w(`<======= sent response:`, response);
   res.status(typeof response === 'string' ? 400 : 200).send(response);
 };
@@ -75,6 +86,7 @@ export default {
   login,
   updateUserSubscription,
   updateUserMail,
+  updateTrasferredSubscription,
   deactivation,
   activation,
 };
