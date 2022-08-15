@@ -3,6 +3,7 @@ import { Request, Response } from 'express';
 import getUserHandler from './handlers/getUserHandler';
 import addUserHandler from './handlers/addUserHandler';
 import loginHandler from './handlers/loginHandler';
+import updateUserPackageHandler from './handlers/updateUserPackageHandler';
 import updateUserSubscriptionHandler from './handlers/updateUserSubscriptionHandler';
 import updateUserMailHandler from './handlers/updateUserMailHandler';
 import updateTrasferredSubscriptionHandler from './handlers/updateTrasferredSubscriptionHandler';
@@ -34,10 +35,16 @@ const login = async (req: Request, res: Response) => {
   res.status(typeof response === 'string' ? 400 : 200).send(response);
 };
 
+// POST update user package
+const updateUserPackage = async (req: Request, res: Response) => {
+  cl.mt(`=======> update package user_id:`, req.body.user_id);
+  const response = await updateUserPackageHandler(req.body);
+  cl.w(`<======= sent package response:`, response);
+  res.status(typeof response === 'string' ? 400 : 200).send(response);
+};
+
 // POST update user subscription
 const updateUserSubscription = async (req: Request, res: Response) => {
-  console.log('updateUserSubscription --->', req.body);
-
   cl.mt(`=======> update subscription id:`, req.body.NFT_id);
   const response = await updateUserSubscriptionHandler(req.body);
   cl.w(`<======= sent response:`, response);
@@ -84,6 +91,7 @@ export default {
   getUser,
   addUser,
   login,
+  updateUserPackage,
   updateUserSubscription,
   updateUserMail,
   updateTrasferredSubscription,

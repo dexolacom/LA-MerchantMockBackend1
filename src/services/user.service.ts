@@ -50,6 +50,20 @@ const addUser = async data => {
   }
 };
 
+// POST update package
+const updateUserPackage = async data => {
+  cl.mt(` * UPDATE package user_id:`, data.user_id);
+  try {
+    return await db.User.update(
+      { package: data.package },
+      { where: { user_id: data.user_id } }
+    );
+  } catch (err) {
+    cl.o(' * ERROR in updateUserPackage:', err.message);
+    return err.message;
+  }
+};
+
 // POST update subscription (mint)
 const updateUserSubscription = async data => {
   const { user_id, NFT_id, expiration, is_activated_NFT, NFT_status } = data;
@@ -164,6 +178,7 @@ export default {
   getUserById,
   getUserByLoginAndPassword,
   addUser,
+  updateUserPackage,
   updateUserSubscription,
   updateUserMail,
   updateTransferredNFT,
