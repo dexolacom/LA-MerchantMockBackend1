@@ -139,6 +139,34 @@ _response:_
 
 ---
 
+### POST add package
+
+_endpoint:_
+
+```
+https://liqiudaccess-merchant-backend.herokuapp.com/aloha/la/user/package
+```
+
+_request:_
+
+```js
+{
+    "user_id": 1,
+    "package": "basic"
+}
+```
+
+_response:_
+
+```js
+{
+    "user_id": 1,
+    "package": "basic"
+}
+```
+
+---
+
 ### POST Subscription
 
 _endpoint:_
