@@ -215,7 +215,11 @@ _request:_
 _response:_
 
 ```js
-'1 information updated';
+{
+    "user_id": 1,
+    "is_waitlist": true,
+    "msg": "information updated"
+}
 ```
 
 ---
