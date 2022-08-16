@@ -7,9 +7,13 @@ const updateUserMailHandler = async data => {
 
   const result = await userService.updateUserMail(data);
 
-  if (result[0] === 0) return 'ERROR: 8(';
+  if (result[0] === 0) return 'Bad Request';
 
-  return `${data.user_id} information updated`;
+  return {
+    user_id: data.user_id,
+    is_waitlist: data.is_waitlist,
+    msg: 'information updated',
+  };
 };
 
 export default updateUserMailHandler;

@@ -102,7 +102,7 @@ const updateUserMail = async data => {
 // POST update transferred NFT
 const updateTransferredNFT = async data => {
   const { user_id, NFT_id, expiration, is_activated_NFT, NFT_status } = data;
-  cl.mt(` * UPDATE deactivation NFT:`, user_id);
+  cl.mt(` * UPDATE deactivation NFT:`, NFT_id);
   try {
     return await db.User.update(
       {
@@ -129,7 +129,7 @@ const updateTransferredNFT = async data => {
 // POST deactivation NFT
 const deactivation = async data => {
   const { user_id, NFT_id, expiration, is_activated_NFT, NFT_status } = data;
-  cl.mt(` * UPDATE deactivation NFT:`, user_id);
+  cl.mt(` * UPDATE deactivation NFT:`, NFT_id);
   try {
     return await db.User.update(
       {
