@@ -17,9 +17,13 @@ const getUserHandler = async data => {
   }
 
   if (dataKeys.length === 1 && dataKeys[0] === 'user_id') {
-    users = await userService.getUserById(Number(query.user_id));
-    if (users.length === 0) return false;
-    cl.o(` -- user id: ${users[0].user_id}`, true);
+    const _user = await userService.getUserById(Number(query.user_id));
+    if (_user.length === 0) {
+      cl.o(` -- there is no user with id: ${query.user_id}`);
+      return false;
+    }
+    users = _user;
+    cl.o(` -- user id: ${_user[0].user_id}`, true);
   }
 
   return users;

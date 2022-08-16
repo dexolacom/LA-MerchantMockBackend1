@@ -15,7 +15,7 @@ import { cl } from '../logger';
 // GET user
 const getUser = async (req: Request, res: Response) => {
   const response = await getUserHandler(req);
-  (response.length !== 0 || typeof response !== Boolean) && sortData(response);
+  typeof response !== 'boolean' && response.length > 1 && sortData(response);
   res.status(200).send(response);
 };
 
