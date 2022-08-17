@@ -139,6 +139,7 @@ const deactivation = async data => {
         expiration: null,
         is_activated_NFT: is_activated_NFT,
         NFT_status: NFT_status,
+        package: null,
       },
       {
         where: {

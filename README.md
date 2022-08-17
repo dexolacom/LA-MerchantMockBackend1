@@ -237,8 +237,9 @@ _request:_
 ```js
 {
     "user_id": 1,
-    "is_activated_NFT": false,
     "NFT_id": 1,
+    "expiration": 1665405339,
+    "is_activated_NFT": null,
     "NFT_status": "deactivation success"
 }
 ```
@@ -248,8 +249,9 @@ _response:_
 ```js
 {
     "user_id": 1,
-    "is_activated_NFT": false,
-    "NFT_id": null,
+    "is_activated_NFT": null,
+    "NFT_id": 1,
+    "expiration": 1665405339,
     "NFT_status": "deactivation success"
 }
 ```

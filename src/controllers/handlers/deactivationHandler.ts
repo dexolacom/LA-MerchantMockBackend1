@@ -7,7 +7,8 @@ const deactivationHandler = async data => {
 
   const result = await userService.deactivation(data);
 
-  if (result[0] === 0) return 'ERROR: 8(';
+  if (typeof result === 'string') return `ERROR: ${result}`;
+  if (result[0] === 0) return 'deactivation failed';
 
   return {
     user_id: data.user_id,
