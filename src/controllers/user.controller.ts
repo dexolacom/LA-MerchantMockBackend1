@@ -15,8 +15,13 @@ import { cl } from '../logger';
 // GET user
 const getUser = async (req: Request, res: Response) => {
   const response = await getUserHandler(req);
-  typeof response !== 'boolean' && response.length > 1 && sortData(response);
-  res.status(200).send(response);
+
+  typeof response !== 'boolean' &&
+    typeof response !== 'string' &&
+    response.length > 1 &&
+    sortData(response);
+
+  res.status(typeof response === 'string' ? 400 : 200).send(response);
 };
 
 // POST add user
