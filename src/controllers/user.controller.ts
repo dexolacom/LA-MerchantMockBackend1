@@ -9,8 +9,16 @@ import updateUserMailHandler from './handlers/updateUserMailHandler';
 import updateTrasferredSubscriptionHandler from './handlers/updateTrasferredSubscriptionHandler';
 import deactivationHandler from './handlers/deactivationHandler';
 import activationHandler from './handlers/activationHandler';
+import userService from '../services/user.service';
 import sortData from '../helpers/sortData';
 import { cl } from '../logger';
+
+// GET all users
+const getAllUsers = async (req: Request, res: Response) => {
+  const response = await userService.getAllUsers(req);
+  typeof response !== 'string' && response.length > 1 && sortData(response);
+  res.status(typeof response === 'string' ? 400 : 200).send(response);
+};
 
 // GET user
 const getUser = async (req: Request, res: Response) => {
@@ -93,6 +101,7 @@ const activation = async (req: Request, res: Response) => {
 };
 
 export default {
+  getAllUsers,
   getUser,
   addUser,
   login,
