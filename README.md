@@ -42,6 +42,8 @@ _response:_
   },
 ];
 ```
+testing: 
+✅Complete 200 ок
 
 ---
 
@@ -73,6 +75,8 @@ _response:_
     "expiration": null
 }
 ```
+testing: 
+✅Complete 200 ок
 
 ---
 
@@ -101,6 +105,8 @@ _response:_
   },
 ];
 ```
+testing: 
+✅Complete 200 ок
 
 ---
 
@@ -164,6 +170,8 @@ _response:_
     "package": "basic"
 }
 ```
+testing: 
+✅Complete 200 ок
 
 ---
 
@@ -192,6 +200,8 @@ _response:_
 ```js
 '1 information updated';
 ```
+testing: 
+✅Complete 200 ок
 
 ---
 
@@ -255,6 +265,8 @@ _response:_
     "NFT_status": "deactivation success"
 }
 ```
+testing: 
+✅Complete 200 ок
 
 ---
 
@@ -283,5 +295,7 @@ _response:_
 ```js
 '1 information updated';
 ```
+testing: 
+✅Complete 200 ок
 
 ---
