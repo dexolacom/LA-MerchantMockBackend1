@@ -36,7 +36,7 @@ const getUser = async (req: Request, res: Response) => {
 const addUser = async (req: Request, res: Response) => {
   cl.w(`=======> add User`);
   const response = await addUserHandler(req.body);
-  cl.w(`<======= sent response:`, response);
+  cl.w(`<======= sent Registration response:`, response);
   res.status(typeof response === 'string' ? 400 : 200).send(response);
 };
 
@@ -44,7 +44,7 @@ const addUser = async (req: Request, res: Response) => {
 const login = async (req: Request, res: Response) => {
   cl.w(`=======> Login`);
   const response = await loginHandler(req.query);
-  cl.w(`<======= sent response to front:`, response);
+  cl.w(`<======= sent Login response to front:`, response);
   res.status(typeof response === 'string' ? 400 : 200).send(response);
 };
 
@@ -60,7 +60,7 @@ const updateUserPackage = async (req: Request, res: Response) => {
 const updateUserSubscription = async (req: Request, res: Response) => {
   cl.mt(`=======> update subscription id:`, req.body.NFT_id);
   const response = await updateUserSubscriptionHandler(req.body);
-  cl.w(`<======= sent response:`, response);
+  cl.w(`<======= sent Mint response:`, response);
   res
     .status(typeof response === 'string' ? 400 : 200)
     .send(typeof response === 'string' ? response : response.data);
@@ -70,7 +70,7 @@ const updateUserSubscription = async (req: Request, res: Response) => {
 const updateUserMail = async (req: Request, res: Response) => {
   cl.mt(`=======> update mail user_id: ${req.body.user_id}`);
   const response = await updateUserMailHandler(req.body);
-  cl.w(`<======= sent response:`, response);
+  cl.w(`<======= sent Mail response:`, response);
   res.status(typeof response === 'string' ? 400 : 200).send(response);
 };
 
@@ -78,7 +78,7 @@ const updateUserMail = async (req: Request, res: Response) => {
 const updateTrasferredSubscription = async (req: Request, res: Response) => {
   cl.mt(`=======> update transferred NFT: ${req.body.NFT_id}`);
   const response = await updateTrasferredSubscriptionHandler(req.body);
-  cl.w(`<======= sent response:`, response);
+  cl.w(`<======= sent transferFrom response:`, response);
   res.status(typeof response === 'string' ? 400 : 200).send(response);
 };
 
@@ -86,7 +86,7 @@ const updateTrasferredSubscription = async (req: Request, res: Response) => {
 const deactivation = async (req: Request, res: Response) => {
   cl.mt(`=======> update deactivation NFT: ${req.body.NFT_id}`);
   const response = await deactivationHandler(req.body);
-  cl.w(`<======= sent response:`, response);
+  cl.w(`<======= sent deactivation response:`, response);
   res.status(typeof response === 'string' ? 400 : 200).send(response);
 };
 
@@ -94,7 +94,7 @@ const deactivation = async (req: Request, res: Response) => {
 const activation = async (req: Request, res: Response) => {
   cl.mt(`=======> update activation NFT: ${req.body.NFT_id}`);
   const response = await activationHandler(req.body);
-  cl.w(`<======= sent response:`, response);
+  cl.w(`<======= sent activation response:`, response);
   res
     .status(typeof response === 'string' ? 400 : 200)
     .send(typeof response === 'string' ? response : response.data);
