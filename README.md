@@ -22,7 +22,7 @@ POSTGRES_PASSWORD = ''
 _endpoint:_
 
 ```
-https://liqiudaccess-merchant-backend.herokuapp.com/aloha/la/user/
+https://liqiudaccess-merchant-backend.herokuapp.com/aloha/la/user/all
 ```
 
 _response:_

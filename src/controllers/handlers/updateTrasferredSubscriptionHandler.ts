@@ -3,7 +3,7 @@ import userService from '../../services/user.service';
 import { cl } from '../../logger';
 
 const updateTrasferredSubscriptionHandler = async data => {
-  cl.o(' -- updateTrasferredSubscriptionHandler', data);
+  // cl.o(' -- updateTrasferredSubscriptionHandler', data);
 
   const result = await userService.updateTransferredNFT(data);
 

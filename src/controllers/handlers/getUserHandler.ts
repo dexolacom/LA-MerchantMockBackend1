@@ -3,18 +3,13 @@ import userService from '../../services/user.service';
 import { cl } from '../../logger';
 
 const getUserHandler = async data => {
-  // cl.o(' -- getUserHandler:');
+  // cl.o(' -- getUserHandler:', data.query);
 
   const { query } = data;
 
   const dataKeys = Object.keys(query);
 
   let users = null;
-
-  if (dataKeys.length === 0) {
-    users = await userService.getAllUsers();
-    cl.o(' -- all users:', users.length);
-  }
 
   if (
     dataKeys.length === 1 &&
