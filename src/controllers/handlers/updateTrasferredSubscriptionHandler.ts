@@ -11,7 +11,9 @@ const updateTrasferredSubscriptionHandler = async data => {
 
   const _user = await userService.getUserById(data.user_id);
 
-  console.log('user:', _user);
+  _user?.length > 0
+    ? cl.mt(' - got a user for update:', _user)
+    : cl.mt(' - user for update:', _user?.length);
 
   return {
     user_id: data.user_id,
