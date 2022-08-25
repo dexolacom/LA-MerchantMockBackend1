@@ -73,9 +73,9 @@ const updateUserSubscription = async data => {
     return await db.User.update(
       {
         NFT_id: NFT_id,
-        expiration: expiration,
         is_activated_NFT: is_activated_NFT,
         NFT_status: NFT_status,
+        expiration: expiration,
       },
       { where: { user_id: user_id } }
     );
@@ -164,9 +164,9 @@ const activation = async data => {
     return await db.User.update(
       {
         NFT_id: NFT_id,
-        expiration: expiration,
         is_activated_NFT: is_activated_NFT,
         NFT_status: NFT_status,
+        expiration: expiration,
       },
       { where: { user_id: user_id } }
     );
