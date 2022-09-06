@@ -3,7 +3,7 @@ import userService from '../../services/user.service';
 import { cl } from '../../logger';
 
 const updateUserSubscriptionExtendDateHandler = async data => {
-  cl.o(' -- updateUserSubscriptionExtendDateHandler', data);
+  // cl.mt(' -- updateUserSubscriptionExtendDateHandler', data);
 
   const result = await userService.updateUserSubscriptionExtendDate(data);
 
