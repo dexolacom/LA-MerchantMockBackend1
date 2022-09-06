@@ -9,6 +9,7 @@ import updateUserMailHandler from './handlers/updateUserMailHandler';
 import updateTrasferredSubscriptionHandler from './handlers/updateTrasferredSubscriptionHandler';
 import deactivationHandler from './handlers/deactivationHandler';
 import activationHandler from './handlers/activationHandler';
+import updateUserSubscriptionExtendDateHandler from './handlers/updateUserSubscriptionExtendDateHandler';
 import userService from '../services/user.service';
 import sortData from '../helpers/sortData';
 import { cl } from '../logger';
@@ -100,6 +101,17 @@ const activation = async (req: Request, res: Response) => {
     .send(typeof response === 'string' ? response : response.data);
 };
 
+// POST update transferred NFT
+const updateUserSubscriptionExtendDate = async (
+  req: Request,
+  res: Response
+) => {
+  cl.mt(`=======> update Extend date NFT: ${req.body.NFT_id}`);
+  const response = await updateUserSubscriptionExtendDateHandler(req.body);
+  cl.w(`<======= sent Extend date response:`, response);
+  res.status(typeof response === 'string' ? 400 : 200).send(response);
+};
+
 export default {
   getAllUsers,
   getUser,
@@ -111,4 +123,5 @@ export default {
   updateTrasferredSubscription,
   deactivation,
   activation,
+  updateUserSubscriptionExtendDate,
 };
