@@ -175,6 +175,21 @@ const activation = async data => {
   }
 };
 
+// UPDATE update subscription extend date
+const updateUserSubscriptionExtendDate = async data => {
+  const { user_id, NFT_id, expiration } = data;
+  cl.mt(` * UPDATE update subscription extend date NFT:`, NFT_id);
+  try {
+    return await db.User.update(
+      { expiration: expiration },
+      { where: { user_id: user_id, NFT_id: NFT_id } }
+    );
+  } catch (err) {
+    cl.o(' * ERROR in updateUserSubscriptionExtendDate:', err.message);
+    return err.message;
+  }
+};
+
 export default {
   getAllUsers,
   getUserById,
@@ -186,4 +201,5 @@ export default {
   updateTransferredNFT,
   deactivation,
   activation,
+  updateUserSubscriptionExtendDate,
 };

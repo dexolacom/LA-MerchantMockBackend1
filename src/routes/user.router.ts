@@ -13,6 +13,9 @@ router.route('/mail').post(userController.updateUserMail);
 router.route('/subscription/deactivation').post(userController.deactivation);
 router.route('/subscription/activation').post(userController.activation);
 router
+  .route('/subscription/extend-date')
+  .post(userController.updateUserSubscriptionExtendDate);
+router
   .route('/subscription/transfer')
   .post(userController.updateTrasferredSubscription);
 
