@@ -285,3 +285,39 @@ _response:_
 ```
 
 ---
+
+### POST extend date
+
+_endpoint:_
+
+```
+https://liqiudaccess-merchant-backend.herokuapp.com/aloha/la/user/subscription/extend-date
+```
+
+_request:_
+
+```js
+{
+    "user_id": 1,
+    "NFT_id": 1,
+    "expiration": 1665405339,
+}
+```
+
+_response:_
+
+```js
+{
+    "user_id": 1,
+    "NFT_id": 1,
+    "is_waitlist": null,
+    "is_activated_NFT": true,
+    "NFT_status": "subscription success",
+    "login": "bestuser",
+    "password": "123456789",
+    "package": null,
+    "expiration": 1665405339
+}
+```
+
+---
