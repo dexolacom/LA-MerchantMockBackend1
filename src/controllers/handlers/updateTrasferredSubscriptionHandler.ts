@@ -11,16 +11,12 @@ const updateTrasferredSubscriptionHandler = async data => {
 
   const _user = await userService.getUserById(data.user_id);
 
-  _user?.length > 0
-    ? cl.mt(' - got a user for update:', _user)
-    : cl.mt(' - user for update:', _user?.length);
-
-  return {
-    user_id: data.user_id,
-    is_activated_NFT: data.is_activated_NFT,
-    NFT_id: null,
-    NFT_status: data.NFT_status,
-  };
+  if (_user?.length > 0) {
+    if (_user[0].NFT_id === null) {
+      cl.mt(' - user transfer deactivation success:', true);
+      return _user[0];
+    } else return `user is not deactivated: ${result}`;
+  } else return `transfer deactivation was not successful: ${result}`;
 };
 
 export default updateTrasferredSubscriptionHandler;
