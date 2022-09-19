@@ -70,10 +70,10 @@ const updateUserSubscription = async data => {
   const {
     user_id,
     NFT_id,
-    typeSubscription,
-    expiration,
+    // typeSubscription,
     is_activated_NFT,
     NFT_status,
+    expiration,
   } = data;
   cl.mt(` * UPDATE subscription id:`, NFT_id);
   try {
@@ -82,7 +82,7 @@ const updateUserSubscription = async data => {
         NFT_id: NFT_id,
         is_activated_NFT: is_activated_NFT,
         NFT_status: NFT_status,
-        package: typeSubscription,
+        // package: typeSubscription,
         expiration: expiration,
       },
       { where: { user_id: user_id } }

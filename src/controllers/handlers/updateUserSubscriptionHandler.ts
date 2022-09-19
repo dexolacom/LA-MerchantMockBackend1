@@ -14,15 +14,6 @@ const updateUserSubscriptionHandler = async data => {
       return _user;
     } else return `user is not subscribed: ${result}`;
   } else return `subscription was not successful: ${result}`;
-
-  // const _user = await userService.getUserById(data.user_id);
-
-  // if (_user?.length > 0) {
-  //   if (_user[0].NFT_id === data.NFT_id) {
-  //     cl.mt(' - user subscribed:', true);
-  //     return _user[0];
-  //   } else return `user is not subscribed: ${result}`;
-  // } else return `subscription was not successful: ${result}`;
 };
 
 export default updateUserSubscriptionHandler;
