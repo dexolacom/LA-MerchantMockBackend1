@@ -67,7 +67,14 @@ const updateUserPackage = async data => {
 
 // POST update subscription (mint)
 const updateUserSubscription = async data => {
-  const { user_id, NFT_id, expiration, is_activated_NFT, NFT_status } = data;
+  const {
+    user_id,
+    NFT_id,
+    // typeSubscription,
+    is_activated_NFT,
+    NFT_status,
+    expiration,
+  } = data;
   cl.mt(` * UPDATE subscription id:`, NFT_id);
   try {
     return await db.User.update(
@@ -75,6 +82,7 @@ const updateUserSubscription = async data => {
         NFT_id: NFT_id,
         is_activated_NFT: is_activated_NFT,
         NFT_status: NFT_status,
+        // package: typeSubscription,
         expiration: expiration,
       },
       { where: { user_id: user_id } }
@@ -108,6 +116,7 @@ const updateTransferredNFT = async data => {
     return await db.User.update(
       {
         NFT_id: null,
+        package: null,
         expiration: null,
         is_activated_NFT: is_activated_NFT,
         NFT_status: NFT_status,
@@ -144,8 +153,7 @@ const deactivation = async data => {
       {
         where: {
           user_id: user_id,
-          NFT_id: NFT_id,
-          is_activated_NFT: !is_activated_NFT,
+          // NFT_id: NFT_id,
         },
       }
     );
@@ -157,7 +165,14 @@ const deactivation = async data => {
 
 // POST activation NFT
 const activation = async data => {
-  const { user_id, NFT_id, expiration, is_activated_NFT, NFT_status } = data;
+  const {
+    user_id,
+    NFT_id,
+    typeSubscription,
+    expiration,
+    is_activated_NFT,
+    NFT_status,
+  } = data;
   cl.mt(` * UPDATE activation NFT:`, NFT_id);
   try {
     return await db.User.update(
@@ -165,9 +180,15 @@ const activation = async data => {
         NFT_id: NFT_id,
         is_activated_NFT: is_activated_NFT,
         NFT_status: NFT_status,
+        package: typeSubscription,
         expiration: expiration,
       },
-      { where: { user_id: user_id } }
+      {
+        where: {
+          user_id: user_id,
+          // NFT_id: null,
+        },
+      }
     );
   } catch (err) {
     cl.o(' * ERROR in activation:', err.message);

@@ -7,16 +7,13 @@ const deactivationHandler = async data => {
 
   const result = await userService.deactivation(data);
 
-  if (typeof result === 'string') return `ERROR: ${result}`;
-  if (result[0] === 0) return 'deactivation failed';
-
-  return {
-    user_id: data.user_id,
-    is_activated_NFT: data.is_activated_NFT,
-    NFT_id: data.NFT_id,
-    expiration: data.expiration,
-    NFT_status: data.NFT_status,
-  };
+  if (Array.isArray(result) && result[0] === 1) {
+    const _user = await userService.getUserById(data.user_id);
+    if (_user[0].NFT_id === null) {
+      cl.mt(' - deactivation success:', true);
+      return _user;
+    } else return `deactivation (1) failed: ${result}`;
+  } else return `deactivation (2) failed: ${result}`;
 };
 
 export default deactivationHandler;

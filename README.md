@@ -96,7 +96,7 @@ _response:_
     NFT_status: 'activation success',
     login: 'bestuser',
     password: '123456789',
-    package: null,
+    package: 'basic',
     expiration: 1665405339,
   },
 ];
@@ -180,17 +180,29 @@ _request:_
 ```js
 {
     "user_id": 1,
-    "is_activated_NFT": true,
     "NFT_id": 1,
-    "expiration": 1665405339,
+    "is_activated_NFT": true,
     "NFT_status": "subscription success"
+    "expiration": 1665405300,
 }
 ```
 
 _response:_
 
 ```js
-'1 information updated';
+[
+  {
+    user_id: 1,
+    NFT_id: 1,
+    is_waitlist: null,
+    is_activated_NFT: true,
+    NFT_status: 'subscription success',
+    login: 'bestuser',
+    password: '123456789',
+    package: 'basic',
+    expiration: 1665405300,
+  },
+];
 ```
 
 ---
@@ -238,22 +250,28 @@ _request:_
 {
     "user_id": 1,
     "NFT_id": 1,
-    "expiration": 1665405339,
+    "expiration": 1665405300,
     "is_activated_NFT": null,
-    "NFT_status": "deactivation success"
+    "NFT_status": "manual deactivation success"
 }
 ```
 
 _response:_
 
 ```js
-{
-    "user_id": 1,
-    "is_activated_NFT": null,
-    "NFT_id": 1,
-    "expiration": 1665405339,
-    "NFT_status": "deactivation success"
-}
+[
+  {
+    user_id: 1,
+    NFT_id: null,
+    is_waitlist: null,
+    is_activated_NFT: null,
+    NFT_status: 'manual deactivation success',
+    login: 'bestuser',
+    password: '123456789',
+    package: null,
+    expiration: null,
+  },
+];
 ```
 
 ---
@@ -272,16 +290,29 @@ _request:_
 {
     "user_id": 1,
     "NFT_id": 1,
-    "expiration": 1665405339,
+    "typeSubscription": "basic",
+    "expiration": 1665405300,
     "is_activated_NFT": true,
-    "NFT_status": "activation success"
+    "NFT_status": "manual activation success"
 }
 ```
 
 _response:_
 
 ```js
-'1 information updated';
+[
+  {
+    user_id: 1,
+    NFT_id: 1,
+    is_waitlist: null,
+    is_activated_NFT: true,
+    NFT_status: 'manual activation success',
+    login: 'bestuser',
+    password: '123456789',
+    package: 'basic',
+    expiration: 1665405300,
+  },
+];
 ```
 
 ---
@@ -300,24 +331,26 @@ _request:_
 {
     "user_id": 1,
     "NFT_id": 1,
-    "expiration": 1665405339,
+    "expiration": 1665405311,
 }
 ```
 
 _response:_
 
 ```js
-{
-    "user_id": 1,
-    "NFT_id": 1,
-    "is_waitlist": null,
-    "is_activated_NFT": true,
-    "NFT_status": "subscription success",
-    "login": "bestuser",
-    "password": "123456789",
-    "package": null,
-    "expiration": 1665405339
-}
+[
+  {
+    user_id: 1,
+    NFT_id: 1,
+    is_waitlist: null,
+    is_activated_NFT: true,
+    NFT_status: 'subscription success',
+    login: 'bestuser',
+    password: '123456789',
+    package: 'basic',
+    expiration: 1665405311,
+  },
+];
 ```
 
 ---
