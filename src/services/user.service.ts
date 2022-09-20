@@ -126,8 +126,8 @@ const updateTransferredNFT = async data => {
         where: {
           user_id: user_id,
           NFT_id: NFT_id,
-          expiration: expiration,
-          is_activated_NFT: !is_activated_NFT,
+          // expiration: expiration,
+          // is_activated_NFT: !is_activated_NFT,
         },
       }
     );
@@ -150,12 +150,7 @@ const deactivation = async data => {
         NFT_status: NFT_status,
         package: null,
       },
-      {
-        where: {
-          user_id: user_id,
-          // NFT_id: NFT_id,
-        },
-      }
+      { where: { user_id: user_id } }
     );
   } catch (err) {
     cl.o(' * ERROR in deactivation:', err.message);
