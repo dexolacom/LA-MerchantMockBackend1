@@ -250,7 +250,6 @@ _request:_
 {
     "user_id": 1,
     "NFT_id": 1,
-    "expiration": 1665405300,
     "is_activated_NFT": null,
     "NFT_status": "manual deactivation success"
 }
@@ -290,10 +289,10 @@ _request:_
 {
     "user_id": 1,
     "NFT_id": 1,
-    "typeSubscription": "basic",
-    "expiration": 1665405300,
     "is_activated_NFT": true,
     "NFT_status": "manual activation success"
+    "typeSubscription": "basic",
+    "expiration": 1665405300,
 }
 ```
 
