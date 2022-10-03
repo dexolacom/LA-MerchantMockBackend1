@@ -21,7 +21,7 @@ export default (sequelize: Model) => {
       login: { type: DataType.STRING, field: 'login' },
       password: { type: DataType.STRING, field: 'password' },
       package: { type: DataType.STRING, field: 'package' },
-      expiration: { type: DataType.INTEGER, field: 'expiration' },
+      expiration: { type: DataType.STRING, field: 'expiration' },
     },
     {
       tableName: 'user',
